@@ -14,7 +14,7 @@
 <body>
     <?php include 'src/includes/header.php' ?>
     <?php include 'src/includes/formAdmin.php' ?>
-    
+
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
