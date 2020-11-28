@@ -1,16 +1,19 @@
-<?php include 'src/libs/function.php' ?>
+<?php 
+include 'src/libs/function.php';
+if (isset($_POST["submit"])) {
+  foreach ($_POST as $items) {
+    validationForm($items);
+  }
+}
+?>
 
 <div class="container-fluid p-lg-5 p-md-3">
   <h2 class="display-4 text-center p-lg-5 p-md-3 py-3">Mettre un produit en vente</h2>
-  <?php
-  if (isset($_POST["submit"])) {
-    validationForm($_POST);
-  }
-  ?>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <div class="form-group">
       <label for="nomProduit">Nom du produit</label>
       <input type="text" class="form-control" id="nomProduit" name="nomProduit" required>
+      <span class="error"><?php echo $nomProduitErr; ?></span>
     </div>
     <div class="form-group">
       <label for="inputUploadImg">Ajouter une image</label>
@@ -19,6 +22,7 @@
     <div class="form-group">
       <label for="inputPrixLancement">Prix de lancement (€)</label>
       <input type="number" class="form-control" id="inputPrixLancement" name="inputPrixLancement">
+      <span class="error"><?php echo $inputPrixLancementErr; ?></span>
     </div>
     <div class="form-group">
       <label for="inputDuree">Durée de l'enchère (h)</label>
