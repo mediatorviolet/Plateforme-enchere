@@ -1,4 +1,5 @@
 <?php
+require_once 'data.php';
 $nomProduit = $inputPrixLancement = $inputDuree = $inputPrixClic = $inputAugmentationPrix = $inputAugmentationDuree = "";
 $nomProduitErr = $inputPrixLancementErr = $inputDureeErr = $inputPrixClicErr = $inputAugmentationPrixErr = $inputAugmentationDureeErr = "";
 
@@ -35,10 +36,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function validationForm($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    echo $data . "\n";
+function validationForm() {
+    $required_input = ["nomProduit", "inputPrixLancement", "inputDuree", "inputPrixClic", "inputAugmentationPrix", "inputAugmentationDuree"];
+    foreach ($required_input as $input) {
+        if (empty($_POST["$input"])) {
+            $form_validation = false;
+        } else {
+            $form_validation = true;
+
+            $_POST["$input"] = trim($_POST["$input"]);
+            $_POST["$input"] = stripslashes($_POST["$input"]);
+            $_POST["$input"] = htmlspecialchars($_POST["$input"]);
+        }
+        //echo $_POST["$input"] . "<br>";
+    }
+    if ($form_validation == false) {
+        echo "<div class=\"col-6 d-flex justify-content-center\">    
+        <div class=\"alert alert-danger\">Veuillez remplir tous les champs demandés.</div></div>";
+    } else {
+        echo "<div class=\"col-6 d-flex justify-content-center\">    
+        <div class=\"alert alert-success\">Article ajouté avec succès.</div></div>";
+    
+        // Création d'un id unique pour chaque article
+        $id_enchere = "article_" . md5(uniqid(rand(), true));
+        $_POST['id'] = $id_enchere;
+        
+        // Création d'un nouvel objet dans la classe Articles
+        $data_file = 'src/libs/data.php';
+        $text = "<?php " . $_POST["id"] . " = new Articles(\"" . $_POST["nomProduit"] . "\", \"src/resources/img/uploads/" 
+        . htmlspecialchars(basename($_FILES["inputUploadImg"]["name"])) . "\", " . $_POST["inputPrixLancement"] . ", " 
+        . $_POST["inputDuree"] . ", " . $_POST["inputPrixClic"] . ", " . $_POST["inputAugmentationPrix"] . ", " 
+        . $_POST["inputAugmentationDuree"] . ")" . "; ?>";
+        file_put_contents($data_file, $text, FILE_APPEND);
+    }
 }
 ?>
