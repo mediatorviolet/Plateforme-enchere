@@ -1,0 +1,57 @@
+[
+    {
+        "article_95ada099895a46fdf553639a084fd4e6": {
+            "titre": "test3",
+            "image": "src\/resources\/img\/uploads\/jack-hamilton-CMnNiQBkwBI-unsplash.jpg",
+            "prixLancement": "3",
+            "duree": "3",
+            "prixClic": "3",
+            "augmentationPrix": "33",
+            "augmentationDuree": "3"
+        }
+    },
+    {
+        "article_81cd26acd2abb3f040f6696e978c3e2f": {
+            "titre": "test",
+            "image": "src\/resources\/img\/uploads\/kai-oberhauser-UnWYxJ_0WnM-unsplash.jpg",
+            "prixLancement": "4",
+            "duree": "4",
+            "prixClic": "4",
+            "augmentationPrix": "4",
+            "augmentationDuree": "4"
+        }
+    },
+    {
+        "article_fad597350ee88f19383a74da97b5f682": {
+            "titre": "test final",
+            "image": "src\/resources\/img\/uploads\/jack-hamilton-CMnNiQBkwBI-unsplash.jpg",
+            "prixLancement": "5",
+            "duree": "5",
+            "prixClic": "5",
+            "augmentationPrix": "5",
+            "augmentationDuree": "5"
+        }
+    },
+    {
+        "article_3323804dbcf2f835102a7682602c5934": {
+            "titre": "Blabla",
+            "image": "src\/resources\/img\/uploads\/Capture d\u2019\u00e9cran 2020-10-03 120909.png",
+            "prixLancement": "45",
+            "duree": "56",
+            "prixClic": "46",
+            "augmentationPrix": "78",
+            "augmentationDuree": "5"
+        }
+    },
+    {
+        "article_a20198f6239dce20972de2a03f7e2cd0": {
+            "titre": "Blabla",
+            "image": "src\/resources\/img\/uploads\/Capture d\u2019\u00e9cran 2020-10-03 120909.png",
+            "prixLancement": "45",
+            "duree": "56",
+            "prixClic": "46",
+            "augmentationPrix": "78",
+            "augmentationDuree": "5"
+        }
+    }
+]
