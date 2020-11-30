@@ -1,6 +1,6 @@
 <?php
 
-function img_upload($img) {
+function img_upload() {
     $target_dir = "src/resources/img/uploads/";
     $target_file = $target_dir . basename($_FILES["inputUploadImg"]["name"]);
     $uploadOk = 1;
