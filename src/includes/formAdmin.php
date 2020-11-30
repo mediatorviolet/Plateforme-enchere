@@ -3,7 +3,7 @@ require_once 'src/libs/function.php';
 require_once 'src/libs/upload.php';
 if (isset($_POST["submit"])) {
   validationForm();
-  img_upload($_POST["inputUploadImg"]);
+  img_upload();
 }
 ?>
 
