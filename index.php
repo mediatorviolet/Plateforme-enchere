@@ -14,6 +14,17 @@
 <body>
     <?php include 'src/includes/header.php' ?>
     <?php include 'src/includes/home.php' ?>
+    <?php 
+        /*$array_test = array();
+        print_r($array_test);
+        $push_array = array(1, 2, 3);
+        $push_array1 = array(1, 2, 325);
+        array_push($array_test, $push_array);
+        print_r($array_test);
+        array_push($array_test, $push_array1);
+        print_r($array_test);*/
+    ?>
+
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
