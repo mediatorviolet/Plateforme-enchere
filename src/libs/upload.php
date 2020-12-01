@@ -14,13 +14,14 @@ function img_upload() {
             $uploadOk = 1;
         } else {
             //echo "File is not an image.";
-            $uploadOk = 0;
+            //$target_file = "src/resources/img/453x302.png";
+            $uploadOk = 1;
         }
     }
     
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        //echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
     
@@ -31,7 +32,7 @@ function img_upload() {
     }
     
     // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
+    if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" && $imageFileType != "") {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
@@ -43,7 +44,7 @@ function img_upload() {
     } else {
         if (move_uploaded_file($_FILES["inputUploadImg"]["tmp_name"], $target_file)) {
             //echo "The file " . htmlspecialchars(basename($_FILES["inputUploadImg"]["name"])) . " has been uploaded.";
-            //echo "<img src=\"src/resources/img/uploads/" . htmlspecialchars(basename($_FILES["inputUploadImg"]["name"])) . "\" class=\"card-img-top\" alt=\"...\">";
+            echo "<img src=" . $target_file . "\" class=\"card-img-top\" alt=\"...\">";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

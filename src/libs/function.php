@@ -1,7 +1,7 @@
 <?php
 require_once 'upload.php';
 $nomProduitErr = $inputPrixLancementErr = $inputDureeErr = $inputPrixClicErr = $inputAugmentationPrixErr = $inputAugmentationDureeErr = "";
-$nomProduit = $inputPrixLancement = $inputDuree = $inputPrixClic = $inputAugmentationPrix = $inputAugmentationDuree = "";
+//$nomProduit = $inputPrixLancement = $inputDuree = $inputPrixClic = $inputAugmentationPrix = $inputAugmentationDuree = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($_POST["nomProduit"])) {
