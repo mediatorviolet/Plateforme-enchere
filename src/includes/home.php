@@ -13,12 +13,15 @@
     <?php foreach($value as $val => $item) :?>
     <div class="col mb-4">
       <div class="card h-100">
-        <img src="<?= $item["image"] == "src/resources/img/uploads/" ? "src/resources/img/453x302.png" : $item["image"] ?>" class="card-img-top" alt="...">
+        <img src="<?= $item["image"] == "src/resources/img/uploads/" ? "src/resources/img/453x302.png" : $item["image"] ?>" 
+        class="card-img-top" alt="...">
+      <div class="duree bg-dark text-light position-absolute d-flex justify-content-center align-items-center font-weight-bold">
+      <?= $item["duree"] ?></div>
         <div class="card-body">
-          <h5 class="card-title"><?= $item["titre"] ?></h5>
-          <p class="card-text">Prix de lancement : <?= $item["prixLancement"] ?></p>
-          <p class="card-text">Prix du clic : <?= $item["prixClic"] ?></p>
-          <p class="card-text">Augmentation du prix : <?= $item["augmentationPrix"] ?></p>
+          <h5 class="card-title font-weight-bold text-capitalize"><?= $item["titre"] ?></h5>
+          <p class="card-text mb-0">Prix de lancement : <?= $item["prixLancement"] ?></p>
+          <p class="card-text mb-0">Prix du clic : <?= $item["prixClic"] ?></p>
+          <p class="card-text mb-0">Augmentation du prix : <?= $item["augmentationPrix"] ?></p>
           <p class="card-text">Augmentation de la durée : <?= $item["augmentationDuree"] ?></p>
           <button type="button" class="btn btn-dark">Enchérir</button>
         </div>

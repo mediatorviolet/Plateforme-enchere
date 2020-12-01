@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.duree {
+    width: 30%;
+    height: 7%;
+}
+
 
 @media screen and (max-width: 380px) {
     .display-4 {

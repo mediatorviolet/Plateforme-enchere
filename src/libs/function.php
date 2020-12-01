@@ -66,7 +66,8 @@ function ajout_produit() {
             "duree" => $_POST["inputDuree"],
             "prixClic" => $_POST["inputPrixClic"],
             "augmentationPrix" => $_POST["inputAugmentationPrix"],
-            "augmentationDuree" => $_POST["inputAugmentationDuree"]
+            "augmentationDuree" => $_POST["inputAugmentationDuree"],
+            "etat" => "inactif"
         )
     );
 
