@@ -7,73 +7,104 @@
             "duree": "3",
             "prixClic": "3",
             "augmentationPrix": "33",
-            "augmentationDuree": "3"
+            "augmentationDuree": "3",
+            "etat": "inactif"
         }
     },
     {
-        "article_81cd26acd2abb3f040f6696e978c3e2f": {
-            "titre": "test",
+        "article_51068cbde18674d73cb47bd3ed1efe13": {
+            "titre": "za",
             "image": "src\/resources\/img\/uploads\/kai-oberhauser-UnWYxJ_0WnM-unsplash.jpg",
-            "prixLancement": "4",
-            "duree": "4",
-            "prixClic": "4",
-            "augmentationPrix": "4",
-            "augmentationDuree": "4"
-        }
-    },
-    {
-        "article_fad597350ee88f19383a74da97b5f682": {
-            "titre": "test final",
-            "image": "src\/resources\/img\/uploads\/jack-hamilton-CMnNiQBkwBI-unsplash.jpg",
-            "prixLancement": "5",
-            "duree": "5",
-            "prixClic": "5",
-            "augmentationPrix": "5",
-            "augmentationDuree": "5"
-        }
-    },
-    {
-        "article_7e9fc13bb9214797f9d0ba5499468dcd": {
-            "titre": "test",
-            "image": "src\/resources\/img\/uploads\/kai-oberhauser-UnWYxJ_0WnM-unsplash.jpg",
-            "prixLancement": "4",
-            "duree": "4",
-            "prixClic": "4",
-            "augmentationPrix": "4",
-            "augmentationDuree": "4"
-        }
-    },
-    {
-        "article_1cc3f95a326fb480e4cda971850b4cbb": {
-            "titre": "serious test",
-            "image": "src\/resources\/img\/uploads\/kai-oberhauser-UnWYxJ_0WnM-unsplash.jpg",
-            "prixLancement": "5",
-            "duree": "5",
-            "prixClic": "5",
-            "augmentationPrix": "5",
-            "augmentationDuree": "5"
-        }
-    },
-    {
-        "article_f3c6da1310b4f046e053ff601f958bce": {
-            "titre": "test no image",
-            "image": "src\/resources\/img\/uploads\/",
-            "prixLancement": "6",
-            "duree": "6",
-            "prixClic": "6",
-            "augmentationPrix": "6",
-            "augmentationDuree": "6"
-        }
-    },
-    {
-        "article_d94aeeb3c037c3ee9c5736b150bb53c1": {
-            "titre": "img2",
-            "image": "src\/resources\/img\/uploads\/jack-hamilton-CMnNiQBkwBI-unsplash.jpg",
             "prixLancement": "45",
-            "duree": "43654",
-            "prixClic": "5645",
-            "augmentationPrix": "68",
-            "augmentationDuree": "545"
+            "duree": "5",
+            "prixClic": "5",
+            "augmentationPrix": "35",
+            "augmentationDuree": "5",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_dc0ad00b2f45c7dc9e78c6511ab4005c": {
+            "titre": "retest",
+            "image": "src\/resources\/img\/uploads\/kai-oberhauser-UnWYxJ_0WnM-unsplash.jpg",
+            "prixLancement": "5",
+            "duree": "5",
+            "prixClic": "5",
+            "augmentationPrix": "5",
+            "augmentationDuree": "5",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_8e0c97d4d59a5f5b9f3aef197513814d": {
+            "titre": "test  no img",
+            "image": "src\/resources\/img\/uploads\/",
+            "prixLancement": "4",
+            "duree": "4",
+            "prixClic": "4",
+            "augmentationPrix": "4",
+            "augmentationDuree": "4",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_5e2506ad8d9ba027e05a234a8c2cd884": {
+            "titre": "yop",
+            "image": "src\/resources\/img\/uploads\/aude-andre-saturnio-QXAUlcgWYj8-unsplash.jpg",
+            "prixLancement": "5",
+            "duree": "5",
+            "prixClic": "5",
+            "augmentationPrix": "5",
+            "augmentationDuree": "5",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_37cab2d966307dbfd9f90d04059ad452": {
+            "titre": "tell",
+            "image": "src\/resources\/img\/uploads\/jr-korpa-0lOkeLbdsBw-unsplash.jpg",
+            "prixLancement": "5555",
+            "duree": "5",
+            "prixClic": "5",
+            "augmentationPrix": "5",
+            "augmentationDuree": "5",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_7dc2e4475e30ee073e4ea6b32367c00b": {
+            "titre": "foo",
+            "image": "src\/resources\/img\/uploads\/wolfgang-hasselmann-g4pHm-NOliM-unsplash.jpg",
+            "prixLancement": "4",
+            "duree": "4",
+            "prixClic": "4",
+            "augmentationPrix": "4",
+            "augmentationDuree": "4",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_07be885adf4eb93524d163997fecf475": {
+            "titre": "bar",
+            "image": "src\/resources\/img\/uploads\/kyrylo-kholopkin-JB91fiIa9RE-unsplash.jpg",
+            "prixLancement": "9",
+            "duree": "9",
+            "prixClic": "9",
+            "augmentationPrix": "9",
+            "augmentationDuree": "99",
+            "etat": "inactif"
+        }
+    },
+    {
+        "article_31c0d664ff00cf5d98ebaf6efe9a136c": {
+            "titre": "no img",
+            "image": "src\/resources\/img\/uploads\/",
+            "prixLancement": "54",
+            "duree": "5",
+            "prixClic": "55",
+            "augmentationPrix": "5",
+            "augmentationDuree": "5",
+            "etat": "inactif"
         }
     }
 ]
