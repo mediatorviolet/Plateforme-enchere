@@ -59,16 +59,16 @@ function ajout_produit() {
     
     // Ajout du de l'article dans le tableau $json_array
     $postArray = array(
-        $id_enchere => array(
-            "titre" => $_POST["nomProduit"],
-            "image" => "src/resources/img/uploads/" . basename($_FILES["inputUploadImg"]["name"]),
-            "prixLancement" => $_POST["inputPrixLancement"],
-            "duree" => $_POST["inputDuree"],
-            "prixClic" => $_POST["inputPrixClic"],
-            "augmentationPrix" => $_POST["inputAugmentationPrix"],
-            "augmentationDuree" => $_POST["inputAugmentationDuree"],
-            "etat" => "inactif"
-        )
+        "id" => $id_enchere,
+        "titre" => $_POST["nomProduit"],
+        "image" => "src/resources/img/uploads/" . basename($_FILES["inputUploadImg"]["name"]),
+        "prixLancement" => intval($_POST["inputPrixLancement"]),
+        "duree" => intval($_POST["inputDuree"]),
+        "prixClic" => intval($_POST["inputPrixClic"]),
+        "augmentationPrix" => intval($_POST["inputAugmentationPrix"]),
+        "augmentationDuree" => intval($_POST["inputAugmentationDuree"]),
+        "etat" => "inactif",
+        "date_fin" => 1606345200
     );
 
     $data_file = 'src/libs/data.json';
@@ -76,6 +76,18 @@ function ajout_produit() {
     array_push($json_array, $postArray);
     file_put_contents($data_file, json_encode($json_array));
     
+}
+
+function enchere() {
+    global $data_file;
+    global $json_array;
+    if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["encherir"])) {
+        $id = $_POST["hint"];
+        $json_array = json_decode(file_get_contents($data_file), true);
+        (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / 6; // division par 6 wtf ?
+        file_put_contents($data_file, json_encode($json_array));
+        header("Location:  index.php#" . $json_array[$id]["id"]);
+    }
 }
 
 ?>
