@@ -73,7 +73,7 @@ function ajout_produit() {
 
     $data_file = 'src/libs/data.json';
     $json_array = json_decode(file_get_contents($data_file), true);
-    array_push($json_array, $postArray);
+    array_unshift($json_array, $postArray);
     file_put_contents($data_file, json_encode($json_array));
     
 }
@@ -84,10 +84,14 @@ function enchere() {
     if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["encherir"])) {
         $id = $_POST["hint"];
         $json_array = json_decode(file_get_contents($data_file), true);
-        (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / 6; // division par 6 wtf ?
+        (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / count($json_array); // division par la longueur de $json_array (bug foreach ?)
+        (int) $json_array[$id]["duree"] = (int) $json_array[$id]["duree"] + ((int) $json_array[$id]["augmentationDuree"] / 3600); // Division par 3600 pour faire la conversion secondes -> heures
         file_put_contents($data_file, json_encode($json_array));
         header("Location:  index.php#" . $json_array[$id]["id"]);
     }
 }
+
+
+
 
 ?>

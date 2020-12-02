@@ -3,6 +3,11 @@
   date_default_timezone_set("Indian/Reunion");
   $data_file = 'src/libs/data.json';
   $json_array = json_decode(file_get_contents($data_file), true);
+  print_r($json_array[0]["duree"] * 3600);
+  print_r("<br>");
+  print_r(($json_array[0]["duree"] * 3600) / 60);
+  print_r("<br>");
+  print_r($json_array[0]["duree"]);
 ?>
 
 <div class="container-fluid p-lg-5 p-md-3">
@@ -15,7 +20,7 @@
       <div id="<?= $value["id"] ?>" class="card h-100">
         <img src="<?= $value["image"] == "src/resources/img/uploads/" ? "src/resources/img/453x302.png" : $value["image"] ?>" 
         class="card-img-top" alt="...">
-      <div id="<?= $value["duree"] ?>"
+      <div id="duree_<?= $value["id"] ?>"
         class="duree bg-dark text-light position-absolute d-flex justify-content-center align-items-center font-weight-bold">
         <?= $value["duree"] ?></div>
         <div class="card-body">
@@ -25,29 +30,30 @@
           <p class="card-text mb-0">Augmentation du prix : <?= $value["augmentationPrix"] ?> cts /clic</p>
           <p class="card-text">Augmentation de la durée : <?= $value["augmentationDuree"] ?> s / clic</p>
           <form action="<?= enchere() ?>" method="POST">
-            <input type="text" name="hint" value="<?= $key ?>">
+            <input type="hidden" name="hint" value="<?= $key ?>">
             <button id="<?= $value["id"] ?>" type="submit" name="encherir" class="btn btn-dark">Enchérir</button>
           </form>
         </div>
       </div>
     </div>
 
-    <script>
-    //Gestion du timer by Vincent
-      var timer = setInterval(function countDown() {
-          var tempAct = new Date(); //On recupere la date UNIX
-          var heure = Math.floor(tempAct.getTime() / 1000); //On transforme la date en secondes depuis la date fixe UNIX
-          var timeRemaining = <?php echo $value['date_fin']?> - heure; //On compare les secondes depuis date fixe UNIX PHP à JS
-          var hoursRemaining = parseInt(timeRemaining / 3600); // conversion en heures
-          var minutesRemaining = parseInt((timeRemaining % 3600) / 60); // conversion en minutes
-          var secondsRemaining = parseInt((timeRemaining % 3600) % 60); // conversion en secondes
-          //On attribue l'id de l'enchere dans la zone où il y a le timer et on dit que l'on souhaite afficher le timer
-          document.getElementById('<?= $value['duree'] ?>').innerHTML = hoursRemaining + ' h : ' + minutesRemaining + ' m : ' + secondsRemaining + ' s ';
-          if (timeRemaining <= 0) {//Sinon on met expire et on desactive le bouton encherir
-              document.getElementById('<?= $value['duree'] ?>').innerHTML = "EXPIRE";
-          }
-      }, 1000); // répéte la fonction toutes les 1 seconde
-    </script>
     <?php endforeach; ?>
+    <script
+			  src="https://code.jquery.com/jquery-3.5.1.min.js"
+			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+			  crossorigin="anonymous"></script>
+    <script src="src/resources/scripts/easytimer.min.js"></script>
+    <script>
+        var timerInstance = new easytimer.Timer();
+        //var timer = new Timer();
+        timerInstance.start({countdown: true, startValues: {seconds: <?= $value["duree"] * 3600 ?>}});
+        $('#duree_<?= $value["id"] ?>').html(timerInstance.getTimeValues().toString());
+        timerInstance.addEventListener('secondsUpdated', function(e) {
+          $('#duree_<?= $value["id"] ?>').html(timerInstance.getTimeValues().toString());
+        });
+        timerInstance.addEventListener('targetAchieved', function(e) {
+          $('#duree_<?= $value["id"] ?>').html('Expiré');
+        });
+    </script>
   </div>
 </div>
