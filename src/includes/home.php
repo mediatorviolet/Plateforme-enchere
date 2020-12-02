@@ -3,11 +3,6 @@
   date_default_timezone_set("Indian/Reunion");
   $data_file = 'src/libs/data.json';
   $json_array = json_decode(file_get_contents($data_file), true);
-  print_r($json_array[0]["duree"] * 3600);
-  print_r("<br>");
-  print_r(($json_array[0]["duree"] * 3600) / 60);
-  print_r("<br>");
-  print_r($json_array[0]["duree"]);
 ?>
 
 <div class="container-fluid p-lg-5 p-md-3">
@@ -37,16 +32,15 @@
       </div>
     </div>
 
-    <?php endforeach; ?>
     <script
 			  src="https://code.jquery.com/jquery-3.5.1.min.js"
 			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 			  crossorigin="anonymous"></script>
     <script src="src/resources/scripts/easytimer.min.js"></script>
-    <script>
+    <!-- <script>
         var timerInstance = new easytimer.Timer();
         //var timer = new Timer();
-        timerInstance.start({countdown: true, startValues: {seconds: <?= $value["duree"] * 3600 ?>}});
+        timerInstance.start({countdown: true, startValues: {seconds: <?= $value["duree"] ?>}});
         $('#duree_<?= $value["id"] ?>').html(timerInstance.getTimeValues().toString());
         timerInstance.addEventListener('secondsUpdated', function(e) {
           $('#duree_<?= $value["id"] ?>').html(timerInstance.getTimeValues().toString());
@@ -54,6 +48,7 @@
         timerInstance.addEventListener('targetAchieved', function(e) {
           $('#duree_<?= $value["id"] ?>').html('Expiré');
         });
-    </script>
+    </script> -->
+    <?php endforeach; ?>
   </div>
 </div>

@@ -63,7 +63,7 @@ function ajout_produit() {
         "titre" => $_POST["nomProduit"],
         "image" => "src/resources/img/uploads/" . basename($_FILES["inputUploadImg"]["name"]),
         "prixLancement" => intval($_POST["inputPrixLancement"]),
-        "duree" => intval($_POST["inputDuree"]),
+        "duree" => intval($_POST["inputDuree"] * 3600),
         "prixClic" => intval($_POST["inputPrixClic"]),
         "augmentationPrix" => intval($_POST["inputAugmentationPrix"]),
         "augmentationDuree" => intval($_POST["inputAugmentationDuree"]),
@@ -84,8 +84,8 @@ function enchere() {
     if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["encherir"])) {
         $id = $_POST["hint"];
         $json_array = json_decode(file_get_contents($data_file), true);
-        (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / count($json_array); // division par la longueur de $json_array (bug foreach ?)
-        (int) $json_array[$id]["duree"] = (int) $json_array[$id]["duree"] + ((int) $json_array[$id]["augmentationDuree"] / 3600); // Division par 3600 pour faire la conversion secondes -> heures
+        (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / count($json_array); // Division par la longueur de $json_array (bug foreach ?)
+        (int) $json_array[$id]["duree"] += (int) $json_array[$id]["augmentationDuree"] / count($json_array); // Division par la longueur de $json_array (bug foreach ?)
         file_put_contents($data_file, json_encode($json_array));
         header("Location:  index.php#" . $json_array[$id]["id"]);
     }
