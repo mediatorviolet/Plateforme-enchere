@@ -1,4 +1,3 @@
 - modifier un article
 - activer / désactiver un article
-- connexion admin
 - pagination

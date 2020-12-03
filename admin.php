@@ -3,7 +3,7 @@
     // Si on est pas connecté en tant qu'admin, on est automatiquement renvoyé sur index.php
     if(!$_SESSION["admin"]) {
         header('Location: index.php');
-    }
+    }      
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,19 @@
 
 <body>
     <?php include 'src/includes/header.php' ?>
-    <?php include 'src/includes/formAdmin.php' ?>
+    <?php // On choisit la page à inclure lorsqu'on clique sur un des liens présent dans la navbar
+        $page_ok = array(
+            "#" => "dashboard.php",
+            "dashboard" => "dashboard.php",
+            "formAdmin" => "formAdmin.php"
+        );
+        if (isset($_GET['page']) and (isset($page_ok[$_GET["page"]]))) {
+            $page = $_GET['page'];
+            include ("src/includes/" . $page_ok[$page]);
+          } else {
+              include "src/includes/dashboard.php";
+          }
+    ?>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
