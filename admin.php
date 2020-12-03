@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    // Si on est pas connecté en tant qu'admin, on est automatiquement renvoyé sur index.php
+    if(!$_SESSION["admin"]) {
+        header('Location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
