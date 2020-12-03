@@ -6,8 +6,8 @@ $json_array = json_decode(file_get_contents($data_file), true);
 ?>
 
 <div class="container-fluid p-lg-5 p-md-3">
-  <?php 
-    $count = 0;
+  <?php
+  $count = 0;
   for ($i = 0; $i < count($json_array); $i++) {
     if ($json_array[$i]["etat"] == "actif") {
       $count++;
@@ -32,17 +32,15 @@ $json_array = json_decode(file_get_contents($data_file), true);
                 <p class="card-text">Augmentation de la durée : <?= $value["augmentationDuree"] ?> s / clic</p>
                 <form action="<?= enchere() ?>" method="POST">
                   <input type="hidden" name="hint" value="<?= $key ?>">
-                  <button id="<?= $value["id"] ?>" type="submit" name="encherir" class="btn btn-dark"
-                  <?php
-                    echo $time <= 0 ? "disabled" : "";
-                  ?>
-                  >Enchérir</button>
+                  <button id="<?= $value["id"] ?>" type="submit" name="encherir" class="btn btn-dark" <?php
+                                                                                                      echo $time <= 0 ? "disabled" : "";
+                                                                                                      ?>>Enchérir</button>
                 </form>
               </div>
             </div>
           </div>
 
-          <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>        <?php endif ?>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> <?php endif ?>
       <?php endforeach; ?>
     </div>
   <?php } else {
