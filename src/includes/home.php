@@ -32,7 +32,11 @@ $json_array = json_decode(file_get_contents($data_file), true);
                 <p class="card-text">Augmentation de la durée : <?= $value["augmentationDuree"] ?> s / clic</p>
                 <form action="<?= enchere() ?>" method="POST">
                   <input type="hidden" name="hint" value="<?= $key ?>">
-                  <button id="<?= $value["id"] ?>" type="submit" name="encherir" class="btn btn-dark">Enchérir</button>
+                  <button id="<?= $value["id"] ?>" type="submit" name="encherir" class="btn btn-dark"
+                  <?php
+                    echo $time <= 0 ? "disabled" : "";
+                  ?>
+                  >Enchérir</button>
                 </form>
               </div>
             </div>
