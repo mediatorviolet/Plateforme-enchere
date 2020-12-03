@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'src/libs/function.php';
 require_once 'src/libs/upload.php';
 if (isset($_POST["submit"])) {

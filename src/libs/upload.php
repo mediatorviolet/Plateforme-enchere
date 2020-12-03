@@ -51,7 +51,8 @@
     }
 }*/
 
-function img_upload() {
+function img_upload()
+{
     $fileName = $_FILES["inputUploadImg"]["name"];
     if ($fileName !== "") { // On vérifie que la variable img n'est pas vide
         $validExt = array(".jpg", ".jpeg", ".png", ".gif");
@@ -61,7 +62,7 @@ function img_upload() {
             die;
         }*/
         $fileError = $_FILES["inputUploadImg"]["error"];
-        switch($fileError) {
+        switch ($fileError) {
             case UPLOAD_ERR_INI_SIZE:
                 echo "Exceeds max size in php.ini";
                 break;
@@ -104,5 +105,3 @@ function img_upload() {
         $_POST["inputUploadImg"] = "src/resources/img/453x302.png";
     }
 }
-
-?>

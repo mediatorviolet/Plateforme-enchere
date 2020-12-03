@@ -4,22 +4,22 @@ $nomProduitErr = $inputPrixLancementErr = $inputDureeErr = $inputPrixClicErr = $
 //$nomProduit = $inputPrixLancement = $inputDuree = $inputPrixClic = $inputAugmentationPrix = $inputAugmentationDuree = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(empty($_POST["nomProduit"])) {
+    if (empty($_POST["nomProduit"])) {
         $nomProduitErr = "Veuillez entrer un nom pour votre produit.";
     }
-    if(empty($_POST["inputPrixLancement"])) {
+    if (empty($_POST["inputPrixLancement"])) {
         $inputPrixLancementErr = "Veuillez entrer un prix de lancement.";
     }
-    if(empty($_POST["inputDuree"])) {
+    if (empty($_POST["inputDuree"])) {
         $inputDureeErr = "Veuillez entrer une durée.";
     }
-    if(empty($_POST["inputPrixClic"])) {
+    if (empty($_POST["inputPrixClic"])) {
         $inputPrixClicErr = "Veuillez entrer le prix du clic.";
     }
-    if(empty($_POST["inputAugmentationPrix"])) {
+    if (empty($_POST["inputAugmentationPrix"])) {
         $inputAugmentationPrixErr = "Veuillez entrer une valeur pour l'augmentation du prix par clic.";
     }
-    if(empty($_POST["inputAugmentationDuree"])) {
+    if (empty($_POST["inputAugmentationDuree"])) {
         $inputAugmentationDureeErr = "Veuillez entrer une valeur pour l'augmentation de la durée de l'enchère par clic.";
     }
 }
@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $class_alert = "";
 $msg_alert = "";
-function validationForm() {
+function validationForm()
+{
     global $class_alert;
     global $msg_alert;
     $count = 0;
@@ -52,11 +53,12 @@ function validationForm() {
 }
 
 
-function ajout_produit() {
+function ajout_produit()
+{
     // Création d'un id unique pour chaque article
     $id_enchere = "article_" . md5(uniqid(rand(), true));
     $_POST["id"] = $id_enchere;
-    
+
     // Ajout du de l'article dans le tableau $json_array
     $postArray = array(
         "id" => $id_enchere,
@@ -68,30 +70,25 @@ function ajout_produit() {
         "augmentationPrix" => intval($_POST["inputAugmentationPrix"]),
         "augmentationDuree" => intval($_POST["inputAugmentationDuree"]),
         "etat" => "inactif",
-        "date_fin" => 1606345200
+        "date_fin" => mktime(date("H") + ($_POST["inputDuree"]))
     );
 
     $data_file = 'src/libs/data.json';
     $json_array = json_decode(file_get_contents($data_file), true);
     array_unshift($json_array, $postArray);
     file_put_contents($data_file, json_encode($json_array));
-    
 }
 
-function enchere() {
+function enchere()
+{
     global $data_file;
     global $json_array;
-    if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["encherir"])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["encherir"])) {
         $id = $_POST["hint"];
         $json_array = json_decode(file_get_contents($data_file), true);
         (int) $json_array[$id]["prixLancement"] += (int) $json_array[$id]["augmentationPrix"] * 0.01 / count($json_array); // Division par la longueur de $json_array (bug foreach ?)
-        (int) $json_array[$id]["duree"] += (int) $json_array[$id]["augmentationDuree"] / count($json_array); // Division par la longueur de $json_array (bug foreach ?)
+        (int) $json_array[$id]["date_fin"] += (int) $json_array[$id]["augmentationDuree"] / count($json_array); // Division par la longueur de $json_array (bug foreach ?)
         file_put_contents($data_file, json_encode($json_array));
         header("Location:  index.php#" . $json_array[$id]["id"]);
     }
 }
-
-
-
-
-?>
