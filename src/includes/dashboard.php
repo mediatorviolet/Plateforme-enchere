@@ -33,7 +33,10 @@ $json_array = json_decode(file_get_contents($data_file), true);
           <td class="align-middle text-center"><?= $value["augmentationDuree"] ?></td>
           <td class="align-middle text-center text-uppercase font-weight-bold <?= $value["etat"] == "actif" ? "text-success" : "text-danger" ?>"><?= $value["etat"] ?></td>
           <td class="align-middle text-center">
-            
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1"></label>
+            </div>
           </td>
         </tr>
       <?php endforeach ?>
