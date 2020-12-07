@@ -95,7 +95,6 @@ function enchere()
 
 function change_state() {
     global $data_file;
-    //global $json_array;
     if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["state"])) {
         $id = $_POST["indice"];
         $json_array = json_decode(file_get_contents($data_file), true);
@@ -110,3 +109,4 @@ function change_state() {
         }
     }
 }
+?>

@@ -23,7 +23,6 @@
             } else {
                 $class_alert = "success";
                 $msg_alert = "Article ajouté avec succès.";
-                echo "aaaaaaaaa";
                 modif_enchere();
             }
         }

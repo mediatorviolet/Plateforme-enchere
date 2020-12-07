@@ -23,7 +23,7 @@ $json_array = json_decode(file_get_contents($data_file), true);
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($json_array as $key => $value) : ?>
+      <?php foreach ($json_array as $key => $value) :?>
         <tr>
           <th class="align-middle text-center" scope="row"><?= $key ?></th>
           <td class="align-middle text-center"><?= $value["titre"] ?></td>
@@ -37,16 +37,9 @@ $json_array = json_decode(file_get_contents($data_file), true);
           <td class="align-middle text-center">
           <form action="<?= change_state() ?>" method="post" id="<?= $value["id"] ?>">
             <div class="custom-control custom-switch">
+              <input type="hidden" name="state" value="<?= $value["etat"] ?>">
               <input type="checkbox" class="custom-control-input" id="<?= $key ?>" name="state" onchange="this.form.submit()" 
-              <?php 
-                $check = "";
-                if ($value["etat"] == "actif") {
-                  $check = "checked";
-                } else {
-                  $check = "";
-                }
-                echo $check;
-              ?>>
+              value="<?= $value["etat"] ?>" <?= $value["etat"] == "actif" ? "checked" :  "" ?>>
               <label class="custom-control-label" for="<?= $key ?>"></label>
               <input type="hidden" name="indice" value="<?= $key ?>">
             </div>
@@ -63,7 +56,6 @@ $json_array = json_decode(file_get_contents($data_file), true);
     </tbody>
   </table>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <?php
@@ -83,7 +75,18 @@ for ($x = 0; $x < count($json_array); $x++) {     //On récupère la longueur du
       };
 
       myFunction();
+
     })
   </script>
+  <!-- <script>
+    function check() {
+      var test = document.getElementById("<?= $x ?>");
+      if ("<?= $json_array[$x]["etat"] ?>" == "actif") {
+       test.setAttribute("checked", ""); 
+      } else {
+        test.removeAttribute("checked");
+      }
+    }
+  </script> -->
 
 <?php } ?>
