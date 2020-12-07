@@ -27,7 +27,8 @@
         $page_ok = array(
             "#" => "dashboard.php",
             "dashboard" => "dashboard.php",
-            "formAdmin" => "formAdmin.php"
+            "formAdmin" => "formAdmin.php",
+            "formModif" => "formModif.php"
         );
         if (isset($_GET['page']) and (isset($page_ok[$_GET["page"]]))) {
             $page = $_GET['page'];

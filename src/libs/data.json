@@ -1,10 +1,10 @@
 [
     {
         "id": "article_1a87627ac83dbfafea370950eaf4ea2b",
-        "titre": "test timer",
+        "titre": "test timeru testu",
         "image": "src\/resources\/img\/uploads\/jack-hamilton-CMnNiQBkwBI-unsplash.jpg",
-        "prixLancement": 2.2,
-        "duree": 7200,
+        "prixLancement": 2,
+        "duree": 2,
         "prixClic": 2,
         "augmentationPrix": 2,
         "augmentationDuree": 2,
@@ -13,10 +13,10 @@
     },
     {
         "id": "article_13cee01b74d33be3ee6406ab6480b143",
-        "titre": "test temps en secondes",
+        "titre": "test temps en secondu",
         "image": "src\/resources\/img\/uploads\/wolfgang-hasselmann-g4pHm-NOliM-unsplash.jpg",
-        "prixLancement": 20.96,
-        "duree": 3600,
+        "prixLancement": 20,
+        "duree": 1,
         "prixClic": 50,
         "augmentationPrix": 12,
         "augmentationDuree": 30,
@@ -25,13 +25,13 @@
     },
     {
         "id": "article_b9ebdb5d2a15910c36a5a9abbc0fd71b",
-        "titre": "plooooo",
+        "titre": "plooooop",
         "image": "src\/resources\/img\/uploads\/kyrylo-kholopkin-JB91fiIa9RE-unsplash.jpg",
-        "prixLancement": 64.56,
-        "duree": 86820,
-        "prixClic": 45,
-        "augmentationPrix": 42,
-        "augmentationDuree": 84,
+        "prixLancement": 84,
+        "duree": 36,
+        "prixClic": 54,
+        "augmentationPrix": 24,
+        "augmentationDuree": 65,
         "etat": "actif",
         "date_fin": 1607042968
     },
@@ -56,7 +56,7 @@
         "prixClic": 40,
         "augmentationPrix": 30,
         "augmentationDuree": 30,
-        "etat": "actif",
+        "etat": "inactif",
         "date_fin": 1607078527
     }
 ]

@@ -10,7 +10,7 @@
         ?>
             <a href="admin.php?page=dashboard" class="nav-link text-light mr-3">Tableau de bord</a>
             <a href="admin.php?page=formAdmin" class="nav-link text-light mr-3">Ajouter une enchère</a>
-            <form action="<?php include 'src/libs/connexion.php' ?>" method="POST">
+            <form action="<?php include 'src/libs/connexion.php' ?>" method="POST" class="px-3">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="deconnexion">Se déconnecter</button>
             </form>
         <?php

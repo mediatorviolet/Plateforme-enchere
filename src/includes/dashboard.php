@@ -1,4 +1,5 @@
 <?php
+require_once "src/libs/function.php";
 $data_file = "src/libs/data.json";
 $json_array = json_decode(file_get_contents($data_file), true);
 ?>
@@ -18,6 +19,7 @@ $json_array = json_decode(file_get_contents($data_file), true);
         <th class="align-middle text-center" scope="col">Augmentation de la durée</th>
         <th class="align-middle text-center" scope="col">Etat</th>
         <th class="align-middle text-center" scope="col">Activer / Désactiver</th>
+        <th class="align-middle text-center" scope="col">Modifier</th>
       </tr>
     </thead>
     <tbody>
@@ -33,10 +35,28 @@ $json_array = json_decode(file_get_contents($data_file), true);
           <td class="align-middle text-center"><?= $value["augmentationDuree"] ?></td>
           <td class="align-middle text-center text-uppercase font-weight-bold <?= $value["etat"] == "actif" ? "text-success" : "text-danger" ?>"><?= $value["etat"] ?></td>
           <td class="align-middle text-center">
+          <form action="<?= change_state() ?>" method="post" id="<?= $value["id"] ?>">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1">
-              <label class="custom-control-label" for="customSwitch1"></label>
+              <input type="checkbox" class="custom-control-input" id="<?= $key ?>" name="state" onchange="this.form.submit()" 
+              <?php 
+                $check = "";
+                if ($value["etat"] == "actif") {
+                  $check = "checked";
+                } else {
+                  $check = "";
+                }
+                echo $check;
+              ?>>
+              <label class="custom-control-label" for="<?= $key ?>"></label>
+              <input type="hidden" name="indice" value="<?= $key ?>">
             </div>
+          </form>
+          </td>
+          <td class="align-middle text-center">
+            <form action="<?= "admin.php?page=formModif" ?>" method="post">
+              <input type="hidden" name="id" value="<?= $key ?>">
+              <button type="submit" name="modif" class="btn btn-outline-light">Modifier</button>
+            </form>
           </td>
         </tr>
       <?php endforeach ?>

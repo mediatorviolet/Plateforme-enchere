@@ -92,3 +92,21 @@ function enchere()
         header("Location:  index.php#" . $json_array[$id]["id"]);
     }
 }
+
+function change_state() {
+    global $data_file;
+    //global $json_array;
+    if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["state"])) {
+        $id = $_POST["indice"];
+        $json_array = json_decode(file_get_contents($data_file), true);
+        if ($json_array[$id]["etat"] == "actif") {
+            $json_array[$id]["etat"] = "inactif";
+            file_put_contents($data_file, json_encode($json_array));
+            header("Location:  admin.php?page=dashboard#" . $json_array[$id]["id"]);
+        } else if ($json_array[$id]["etat"] == "inactif") {
+            $json_array[$id]["etat"] = "actif";
+            file_put_contents($data_file, json_encode($json_array));
+            header("Location:  admin.php?page=dashboard#" . $json_array[$id]["id"]);
+        }
+    }
+}
