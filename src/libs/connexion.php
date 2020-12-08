@@ -1,6 +1,5 @@
 <?php
     /*** Connexion admin ***/
-    //session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["connexion"])) {
         if($_POST["user"] == "admin" and $_POST["pass"] == "test") {
