@@ -2,6 +2,8 @@
 require_once "src/libs/modif.php";
 validation_modif();
 img_upload();
+/*if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["modifier"])) {
+}*/
 
 $json_array = json_decode(file_get_contents("src/libs/data.json"), true);
 $id = $_POST["id"];
