@@ -2,6 +2,9 @@
 require_once "src/libs/function.php";
 $data_file = "src/libs/data.json";
 $json_array = json_decode(file_get_contents($data_file), true);
+if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["state"])) {
+  change_state();
+}
 ?>
 
 <div class="container-fluid ">
@@ -35,14 +38,14 @@ $json_array = json_decode(file_get_contents($data_file), true);
           <td class="align-middle text-center"><?= $value["augmentationDuree"] ?></td>
           <td class="align-middle text-center text-uppercase font-weight-bold <?= $value["etat"] == "actif" ? "text-success" : "text-danger" ?>"><?= $value["etat"] ?></td>
           <td class="align-middle text-center">
-          <form action="<?= change_state() ?>" method="post" id="<?= $value["id"] ?>">
+          <form action="<?= "admin.php?page=dashboard" ?>" method="post" id="<?= $value["id"] ?>">
             <div class="custom-control custom-switch">
               <input type="hidden" name="state" value="<?= $value["etat"] ?>">
               <input type="checkbox" class="custom-control-input" id="<?= $key ?>" name="state" onchange="this.form.submit()" 
               value="<?= $value["etat"] ?>" <?= $value["etat"] == "actif" ? "checked" :  "" ?>>
               <label class="custom-control-label" for="<?= $key ?>"></label>
-              <input type="hidden" name="indice" value="<?= $key ?>">
             </div>
+            <input type="hidden" name="indice" value="<?= $key ?>">
           </form>
           </td>
           <td class="align-middle text-center">
