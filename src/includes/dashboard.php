@@ -78,15 +78,5 @@ for ($x = 0; $x < count($json_array); $x++) {     //On récupère la longueur du
 
     })
   </script>
-  <!-- <script>
-    function check() {
-      var test = document.getElementById("<?= $x ?>");
-      if ("<?= $json_array[$x]["etat"] ?>" == "actif") {
-       test.setAttribute("checked", ""); 
-      } else {
-        test.removeAttribute("checked");
-      }
-    }
-  </script> -->
 
 <?php } ?>
