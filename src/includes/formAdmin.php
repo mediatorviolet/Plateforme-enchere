@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
 <div class="container-fluid p-lg-5 p-md-3">
   <h2 class="display-4 text-center p-lg-5 p-md-3 py-3">Mettre un produit en vente</h2>
   <div class="col-3 text-center mx-auto alert alert-<?= $class_alert ?>"><?= $msg_alert ?></div>
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
+  <form action="<?php echo "admin.php?page=formAdmin"; ?>" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label class="lead" for="nomProduit">Nom du produit</label>
       <input type="text" class="form-control" id="nomProduit" name="nomProduit">
